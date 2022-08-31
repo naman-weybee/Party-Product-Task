@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="PartyTask.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <ul class="navbar">
+                <li class="active">
+                    <a href="Party.aspx">Party</a>
+                </li>
+                <li>
+                    <a href="Products.aspx">Products</a>
+                </li>
+                <li>
+                    <a href="AssignParty.aspx">Assign Party</a>
+                </li>
+                <li>
+                    <a href="ProductRate.aspx">Product Rate</a>
+                </li>
+                <li>
+                    <a href="Invoice.aspx">Invoice</a>
+                </li>
+            </ul>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p style="text-align: center; font-size: x-large;">
+                    Master Page
+                </p>
+                <div class="btnArea">
+                    <div>
+                        <asp:Button ID="Button1" runat="server" Text="Button" />
+                    </div>
+                </div>
+            </asp:ContentPlaceHolder>
+            <br />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+            <br />
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="PartyTask.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Invoice Generetion Module</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            padding-top: .8em;
+            height: 2.2em;
+            background-color: #222;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="auto-style1">
+            <ul class="navbar">
+                <li>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Party/Party.aspx">Invoice Module</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Party/Party.aspx">Party</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Products/Products.aspx" >Products</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/AssignParty/AssignParty.aspx">Assign Party</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/ProductRate/ProductRate.aspx">Product Rate</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Invoice/Invoice.aspx">Invoice</asp:HyperLink>
+                </li>
+            </ul>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p style="text-align: center; font-size: x-large;">
+                    Master Page
+                </p>
+                <div class="btnArea">
+                    <div>
+                        <asp:Button ID="Button1" runat="server" Text="Button" />
+                    </div>
+                </div>
+            </asp:ContentPlaceHolder>
+            <br />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+            <br />
+        </div>
+    </form>
+</body>
+</html>

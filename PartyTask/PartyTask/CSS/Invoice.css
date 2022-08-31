@@ -1,0 +1,103 @@
+﻿
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    padding-top: .8em;
+    height: 2.2em;
+    background-color: #222;
+}
+
+.navbar {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+li {
+    width: auto;
+    display: block;
+    font-size: 14pt;
+    text-align: center;
+    text-decoration: none;
+}
+
+a {
+    color: #9d9d9d;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: white;
+    }
+
+.btnArea {
+    width: 50%;
+    margin: auto;
+    text-align: right;
+}
+
+
+
+td {
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+h4 {
+    margin: .5em;
+}
+
+.total, .closeinvoiceDiv {
+    width: 70%;
+    margin: auto;
+    text-align: right;
+}
+
+.TableContent {
+    width: 50%;
+    margin: auto;
+}
+
+.AddInvoice {
+    color: White;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    padding: 0.5em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+    .AddInvoice:hover {
+        background-color: white;
+        color: #5CB85C;
+        transition: .4s;
+    }
+
+.CloseInvoice, .ClearInvoice {
+    color: White;
+    background-color: #ac2925;
+    border-color: #ac2925;
+    padding: 0.5em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+    .CloseInvoice:hover {
+        background-color: white;
+        color: #ac2925;
+        transition: .4s;
+    }
+
+    .ClearInvoice:hover {
+        background-color: white;
+        color: #ac2925;
+        transition: .4s;
+    }
