@@ -99,7 +99,7 @@ namespace PartyTask
                 }
                 catch (Exception ex)
                 {
-                    Response.Write(ex.Message);
+                    lblAlreadyDataEditExist.Text = ddlAssignPartyNameEdit.SelectedItem + " is already Assign to " + ddlAssignProductNameEdit.SelectedItem + "...!";
                 }
                 finally
                 {
@@ -108,7 +108,7 @@ namespace PartyTask
             }
             else
             {
-                lblAlreadyDataEditExist.Text = ddlAssignPartyNameEdit.SelectedItem + " and " + ddlAssignProductNameEdit.SelectedItem + " Pair is already Exist...!";
+                lblAlreadyDataEditExist.Text = ddlAssignPartyNameEdit.SelectedItem + " is already Assign to " + ddlAssignProductNameEdit.SelectedItem + "...!";
             }
         }
 

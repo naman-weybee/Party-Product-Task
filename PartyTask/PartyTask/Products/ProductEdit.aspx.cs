@@ -45,7 +45,7 @@ namespace PartyTask
                     }
                     catch (Exception ex)
                     {
-                        Response.Write("<script>alert(\"Product Can't be Edited Because it is already Present...!\")</script>");
+                        lblProductEditExist.Text = txtProductEdit.Text + " is already Exist...!";
                         //Response.Write(ex.Message);
                     }
                     finally
@@ -56,7 +56,7 @@ namespace PartyTask
             }
             else
             {
-                lblProductEditExist.Text = txtProductEdit.Text + " With Product Rate " + txtProductRateEdit.Text + " is already Exist...!";
+                lblProductEditExist.Text = txtProductEdit.Text + " is already Exist...!";
             }
         }
 

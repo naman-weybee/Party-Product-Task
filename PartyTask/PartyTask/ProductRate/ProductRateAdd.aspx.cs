@@ -69,7 +69,8 @@ namespace PartyTask
                 }
                 catch (Exception ex)
                 {
-                    Response.Write(ex.Message);
+                    lblProductRateExist.Text = ddlProductNameAdd.SelectedItem.Text + " is already Exist...!";
+                    lblProductRateAddSuccess.Text = "";
                 }
                 finally
                 {

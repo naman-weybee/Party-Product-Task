@@ -41,7 +41,7 @@ namespace PartyTask
                     }
                     catch (Exception ex)
                     {
-                        Response.Write("<script>alert(\"Product Can't be Added Because it is already Present...!\")</script>");
+                        lblProductAddExist.Text = txtProductAdd.Text + " is already Exist...!";
                         //Response.Write(ex.Message);
                     }
                     finally

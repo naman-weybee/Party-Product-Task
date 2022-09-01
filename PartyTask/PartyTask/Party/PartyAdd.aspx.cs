@@ -35,7 +35,8 @@ namespace PartyTask
                     }
                     catch (Exception ex)
                     {
-                        Response.Write(ex.Message);
+                        lblPartyAdd.Text = "";
+                        lblPartyAddExist.Text = txtPartyAdd.Text + " is already Exist...!";
                     }
                     finally
                     {
