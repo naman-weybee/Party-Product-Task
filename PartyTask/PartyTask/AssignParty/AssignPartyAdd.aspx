@@ -35,7 +35,7 @@
         <tr>
             <td>Party Name :</td>
             <td>
-                <asp:DropDownList ID="ddlAssignPartyNameAdd" runat="server" Width="200px" Height="30px">
+                <asp:DropDownList ID="ddlAssignPartyNameAdd" runat="server" Width="200px" Height="30px" CssClass="BoxShaddow">
                 </asp:DropDownList>
                 &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldAssignPartyName" runat="server" ControlToValidate="ddlAssignPartyNameAdd" ErrorMessage="* Please Select Party Name" Font-Size="Small" ForeColor="#CC0000" InitialValue="-1" ValidationGroup="submit"></asp:RequiredFieldValidator>
@@ -44,7 +44,7 @@
         <tr>
             <td>Product Name :</td>
             <td>
-                <asp:DropDownList ID="ddlAssignProductNameAdd" runat="server" Width="200px" Height="30px">
+                <asp:DropDownList ID="ddlAssignProductNameAdd" runat="server" Width="200px" Height="30px" CssClass="BoxShaddow">
                 </asp:DropDownList>
                 &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldAssignProductName" runat="server" ControlToValidate="ddlAssignProductNameAdd" ErrorMessage="* Please Select Product Name" Font-Size="Small" ForeColor="#CC0000" InitialValue="-1" ValidationGroup="submit"></asp:RequiredFieldValidator>

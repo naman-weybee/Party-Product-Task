@@ -37,7 +37,7 @@
         <tr>
             <td>Party Name :</td>
             <td>&nbsp;
-                <asp:DropDownList ID="ddlAssignPartyNameEdit" runat="server" Width="200px" Height="30px">
+                <asp:DropDownList ID="ddlAssignPartyNameEdit" runat="server" Width="200px" Height="30px" CssClass="BoxShaddow">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -48,7 +48,7 @@
         <tr>
             <td class="auto-style2">Product Name :</td>
             <td class="auto-style2">&nbsp;
-                <asp:DropDownList ID="ddlAssignProductNameEdit" runat="server" Width="200px" Height="30px">
+                <asp:DropDownList ID="ddlAssignProductNameEdit" runat="server" Width="200px" Height="30px" CssClass="BoxShaddow">
                 </asp:DropDownList>
             </td>
         </tr>

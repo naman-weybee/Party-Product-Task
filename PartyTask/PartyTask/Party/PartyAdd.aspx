@@ -31,7 +31,7 @@
         <tr>
             <td>Party Name :&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td>
-                <asp:TextBox ID="txtPartyAdd" runat="server" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtPartyAdd" runat="server" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
                 &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldPartyAdd" runat="server" ControlToValidate="txtPartyAdd" ErrorMessage="* Please Enter Party Name" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>

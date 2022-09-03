@@ -16,7 +16,7 @@
                 <h4>Party Name :</h4>
             </td>
             <td>&nbsp;
-                <asp:DropDownList ID="ddlInvoicePartyName" runat="server" Width="200px" Height="30px" AutoPostBack="true" OnSelectedIndexChanged="ddlInvoicePartyName_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlInvoicePartyName" runat="server" Width="200px" Height="30px" AutoPostBack="true" OnSelectedIndexChanged="ddlInvoicePartyName_SelectedIndexChanged" CssClass="BoxShaddow">
                 </asp:DropDownList>
                 &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldInvoicePartyName" runat="server" ControlToValidate="ddlInvoicePartyName" ErrorMessage="* Please Select Party Name" Font-Size="Small" ForeColor="#CC0000" InitialValue="-1" ValidationGroup="submit"></asp:RequiredFieldValidator>
@@ -27,7 +27,7 @@
                 <h4>Product Name :</h4>
             </td>
             <td>&nbsp;
-                <asp:DropDownList ID="ddlInvoiceProductName" runat="server" Width="200px" Height="30px" AutoPostBack="true" OnSelectedIndexChanged="ddlInvoiceProductName_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlInvoiceProductName" runat="server" Width="200px" Height="30px" AutoPostBack="true" OnSelectedIndexChanged="ddlInvoiceProductName_SelectedIndexChanged" CssClass="BoxShaddow">
                 </asp:DropDownList>
                 &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldInvoiceProductName" runat="server" ControlToValidate="ddlInvoiceProductName" ErrorMessage="* Please Select Product Name" Font-Size="Small" ForeColor="#CC0000" InitialValue="-1" ValidationGroup="submit"></asp:RequiredFieldValidator>
@@ -38,7 +38,7 @@
                 <h4>Current Rate :</h4>
             </td>
             <td>&nbsp;
-                <asp:TextBox ID="txtCurrentRate" runat="server" Width="195px" Height="25px" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox ID="txtCurrentRate" runat="server" Width="195px" Height="25px" ReadOnly="True" CssClass="BoxShaddow"></asp:TextBox>
                 &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldInvoiceCurrentRate" runat="server" ControlToValidate="txtCurrentRate" ErrorMessage="* Please Enter Rate" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>
@@ -48,7 +48,7 @@
                 <h4>Quantity :</h4>
             </td>
             <td>&nbsp;
-                <asp:TextBox ID="txtQuantity" runat="server" Width="195px" Height="25px" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtQuantity" runat="server" Width="195px" Height="25px" TextMode="Number" CssClass="BoxShaddow"></asp:TextBox>
                 &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldInvoiceQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="* Please Enter Quantity" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>

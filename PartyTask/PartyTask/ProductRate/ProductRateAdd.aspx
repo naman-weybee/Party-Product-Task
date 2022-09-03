@@ -34,7 +34,7 @@
         <tr>
             <td>Product Name :</td>
             <td>&nbsp;
-                <asp:DropDownList ID="ddlProductNameAdd" runat="server" Width="200px" Height="30px">
+                <asp:DropDownList ID="ddlProductNameAdd" runat="server" Width="200px" Height="30px" CssClass="BoxShaddow">
                 </asp:DropDownList>
             &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldProductRateProductName" runat="server" ControlToValidate="ddlProductNameAdd" ErrorMessage="* Please Select Product Name" Font-Size="Small" ForeColor="#CC0000" InitialValue="-1" ValidationGroup="submit"></asp:RequiredFieldValidator>
@@ -43,7 +43,7 @@
         <tr>
             <td>Product Rate :</td>
             <td>&nbsp;
-                <asp:TextBox ID="txtProductRateAdd" runat="server" TextMode="Number" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtProductRateAdd" runat="server" TextMode="Number" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldProductRateProductRate" runat="server" ControlToValidate="txtProductRateAdd" ErrorMessage="* Please Enter Product Rate" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>
@@ -51,7 +51,7 @@
         <tr>
             <td>Date Of Rate :</td>
             <td>&nbsp;
-                <asp:TextBox ID="txtDateOfRateAdd" runat="server" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtDateOfRateAdd" runat="server" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldProductRateDateOfRate" runat="server" ControlToValidate="txtDateOfRateAdd" ErrorMessage="* Please Select Date Of Rate" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>

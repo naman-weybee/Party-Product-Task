@@ -36,7 +36,7 @@
         <tr>
             <td>Product Name :</td>
             <td>
-                <asp:DropDownList ID="ddlProductNameEdit" runat="server" Width="200px" Height="30px">
+                <asp:DropDownList ID="ddlProductNameEdit" runat="server" Width="200px" Height="30px" CssClass="BoxShaddow">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -47,7 +47,7 @@
         <tr>
             <td>Product Rate :</td>
             <td>
-                <asp:TextBox ID="txtProductRateEdit" runat="server" TextMode="Number" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtProductRateEdit" runat="server" TextMode="Number" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -57,7 +57,7 @@
         <tr>
             <td>Date Of Rate :</td>
             <td>
-                <asp:TextBox ID="txtDateOfRateEdit" runat="server" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtDateOfRateEdit" runat="server" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             </td>
         </tr>
         <tr>

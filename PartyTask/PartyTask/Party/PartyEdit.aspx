@@ -28,7 +28,7 @@
         <tr>
             <td>Party Name :&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td>
-                <asp:TextBox ID="txtPartyEdit" runat="server" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtPartyEdit" runat="server" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             </td>
         </tr>
         <tr>

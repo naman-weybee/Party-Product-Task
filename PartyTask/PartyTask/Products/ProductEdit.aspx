@@ -27,7 +27,7 @@
         <tr>
             <td>Product Name :&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td>
-                <asp:TextBox ID="txtProductEdit" runat="server" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtProductEdit" runat="server" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -38,7 +38,7 @@
         <tr>
             <td>Product Rate :</td>
             <td>
-                <asp:TextBox ID="txtProductRateEdit" runat="server" TextMode="Number" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtProductRateEdit" runat="server" TextMode="Number" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -49,7 +49,7 @@
         <tr>
             <td>Date Of Rate :</td>
             <td>
-                <asp:TextBox ID="txtDateOfRateEdit" runat="server" Width="195px" Height="25px" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox ID="txtDateOfRateEdit" runat="server" Width="195px" Height="25px" ReadOnly="True" CssClass="BoxShaddow"></asp:TextBox>
             </td>
         </tr>
         <tr>

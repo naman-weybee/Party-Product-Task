@@ -30,7 +30,7 @@
         <tr>
             <td>Product Name :&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td>
-                <asp:TextBox ID="txtProductAdd" runat="server" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtProductAdd" runat="server" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldProductAdd" runat="server" ControlToValidate="txtProductAdd" ErrorMessage="* Please Enter Product Name" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>
@@ -38,7 +38,7 @@
         <tr>
             <td>Product Rate :</td>
             <td>
-                <asp:TextBox ID="txtProductRateAdd" runat="server" TextMode="Number" Width="195px" Height="25px"></asp:TextBox>
+                <asp:TextBox ID="txtProductRateAdd" runat="server" TextMode="Number" Width="195px" Height="25px" CssClass="BoxShaddow"></asp:TextBox>
             &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldProductRateProductRate" runat="server" ControlToValidate="txtProductRateAdd" ErrorMessage="* Please Enter Product Rate" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>
@@ -46,7 +46,7 @@
         <tr>
             <td>Date Of Rate :</td>
             <td>
-                <asp:TextBox ID="txtDateOfRateAdd" runat="server" Width="195px" Height="25px" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox ID="txtDateOfRateAdd" runat="server" Width="195px" Height="25px" ReadOnly="True" CssClass="BoxShaddow"></asp:TextBox>
             &nbsp;
                 <asp:RequiredFieldValidator ID="RequiredFieldProductRateDateOfRate" runat="server" ControlToValidate="txtDateOfRateAdd" ErrorMessage="* Please Select Date Of Rate" Font-Size="Small" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
             </td>
