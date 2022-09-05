@@ -9,7 +9,7 @@
         Current Product Rate</p>
     <div class="btnArea">
         <div class="btnPage">
-            <%--<asp:Button ID="btnProductRate" runat="server" Text="Add New Product Rate" PostBackUrl="~/ProductRate/ProductRateAdd.aspx" CssClass="ProductRateAdd"/>--%>
+            <%--<asp:Button ID="btnProductRate" runat="server" Text="Add New Product Rate" PostBackUrl="~/ProductRate/ProductRateAddEdit.aspx" CssClass="ProductRateAdd"/>--%>
         </div>
     </div>
 </asp:Content>

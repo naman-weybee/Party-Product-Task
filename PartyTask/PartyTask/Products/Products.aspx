@@ -10,7 +10,7 @@
     </p>
     <div class="btnArea">
         <div class="btnPage">
-            <asp:Button ID="btnProduct" runat="server" Text="Add New Product" PostBackUrl="~/Products/ProductAdd.aspx" CssClass="ProductsAdd" />
+            <asp:Button ID="btnProduct" runat="server" Text="Add New Product" PostBackUrl="~/Products/ProductAddEdit.aspx" CssClass="ProductsAdd" />
         </div>
     </div>
 </asp:Content>

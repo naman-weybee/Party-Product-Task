@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssignParty\AssignParty.aspx" />
-    <Content Include="AssignParty\AssignPartyAdd.aspx" />
+    <Content Include="AssignParty\AssignPartyAddEdit.aspx" />
     <Content Include="AssignParty\AssignPartyEdit.aspx" />
     <Content Include="CSS\AssignParty.css" />
     <Content Include="CSS\Invoice.css" />
@@ -81,12 +81,12 @@
     <Content Include="Images\Edit.ico" />
     <Content Include="Invoice\Invoice.aspx" />
     <Content Include="JavaScript\JavaScript.js" />
-    <Content Include="Party\PartyAdd.aspx" />
+    <Content Include="Party\PartyAddEdit.aspx" />
     <Content Include="Party\PartyEdit.aspx" />
-    <Content Include="Products\ProductAdd.aspx" />
+    <Content Include="Products\ProductAddEdit.aspx" />
     <Content Include="Products\ProductEdit.aspx" />
     <Content Include="ProductRate\ProductRate.aspx" />
-    <Content Include="ProductRate\ProductRateAdd.aspx" />
+    <Content Include="ProductRate\ProductRateAddEdit.aspx" />
     <Content Include="ProductRate\ProductRateEdit.aspx" />
     <Content Include="Products\Products.aspx" />
     <Content Include="Web.config" />
@@ -100,12 +100,12 @@
     <Compile Include="AssignParty\AssignParty.aspx.designer.cs">
       <DependentUpon>AssignParty.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AssignParty\AssignPartyAdd.aspx.cs">
-      <DependentUpon>AssignPartyAdd.aspx</DependentUpon>
+    <Compile Include="AssignParty\AssignPartyAddEdit.aspx.cs">
+      <DependentUpon>AssignPartyAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AssignParty\AssignPartyAdd.aspx.designer.cs">
-      <DependentUpon>AssignPartyAdd.aspx</DependentUpon>
+    <Compile Include="AssignParty\AssignPartyAddEdit.aspx.designer.cs">
+      <DependentUpon>AssignPartyAddEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="AssignParty\AssignPartyEdit.aspx.cs">
       <DependentUpon>AssignPartyEdit.aspx</DependentUpon>
@@ -131,12 +131,12 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="Party\PartyAdd.aspx.cs">
-      <DependentUpon>PartyAdd.aspx</DependentUpon>
+    <Compile Include="Party\PartyAddEdit.aspx.cs">
+      <DependentUpon>PartyAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Party\PartyAdd.aspx.designer.cs">
-      <DependentUpon>PartyAdd.aspx</DependentUpon>
+    <Compile Include="Party\PartyAddEdit.aspx.designer.cs">
+      <DependentUpon>PartyAddEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Party\PartyEdit.aspx.cs">
       <DependentUpon>PartyEdit.aspx</DependentUpon>
@@ -145,12 +145,12 @@
     <Compile Include="Party\PartyEdit.aspx.designer.cs">
       <DependentUpon>PartyEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Products\ProductAdd.aspx.cs">
-      <DependentUpon>ProductAdd.aspx</DependentUpon>
+    <Compile Include="Products\ProductAddEdit.aspx.cs">
+      <DependentUpon>ProductAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Products\ProductAdd.aspx.designer.cs">
-      <DependentUpon>ProductAdd.aspx</DependentUpon>
+    <Compile Include="Products\ProductAddEdit.aspx.designer.cs">
+      <DependentUpon>ProductAddEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductEdit.aspx.cs">
       <DependentUpon>ProductEdit.aspx</DependentUpon>
@@ -166,12 +166,12 @@
     <Compile Include="ProductRate\ProductRate.aspx.designer.cs">
       <DependentUpon>ProductRate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProductRate\ProductRateAdd.aspx.cs">
-      <DependentUpon>ProductRateAdd.aspx</DependentUpon>
+    <Compile Include="ProductRate\ProductRateAddEdit.aspx.cs">
+      <DependentUpon>ProductRateAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProductRate\ProductRateAdd.aspx.designer.cs">
-      <DependentUpon>ProductRateAdd.aspx</DependentUpon>
+    <Compile Include="ProductRate\ProductRateAddEdit.aspx.designer.cs">
+      <DependentUpon>ProductRateAddEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductRate\ProductRateEdit.aspx.cs">
       <DependentUpon>ProductRateEdit.aspx</DependentUpon>

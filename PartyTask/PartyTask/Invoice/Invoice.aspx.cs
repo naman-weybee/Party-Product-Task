@@ -129,22 +129,31 @@ namespace PartyTask
                 SqlDataAdapter sdr = new SqlDataAdapter("select Invoice.id, Invoice.Partyid, Invoice.Productid, Party.PartyName, Products.ProductName, RateOfProduct, Quantity, Total from Invoice inner join Party on Party.id = Invoice.Partyid inner join Products on Products.id = Invoice.Productid order by Invoice.id", con);
                 SqlCommand cm = new SqlCommand("select Productid from AssignParty where id=" + id, con);
                 con.Open();
-                var id1 = cm.ExecuteScalar();
-                int id2 = Convert.ToInt32(id1);
+                int id2 = Convert.ToInt32(cm.ExecuteScalar());
                 if (flag1 == false)
                 {
-                    SqlCommand cm1 = new SqlCommand("insert into Invoice(Partyid, Productid, RateOfProduct, Quantity, Total)values(" + Convert.ToInt32(ddlInvoicePartyName.SelectedValue) + "," + id2 + "," + Convert.ToInt32(txtCurrentRate.Text.Trim()) + "," + Convert.ToInt32(txtQuantity.Text.Trim()) + "," + Convert.ToInt64(Convert.ToInt32(txtCurrentRate.Text.Trim()) * Convert.ToInt32(txtQuantity.Text.Trim())) + ")", con);
+                    //SqlCommand cm1 = new SqlCommand("insert into Invoice(Partyid, Productid, RateOfProduct, Quantity, Total)values(" + Convert.ToInt32(ddlInvoicePartyName.SelectedValue) + "," + id2 + "," + Convert.ToInt32(txtCurrentRate.Text.Trim()) + "," + Convert.ToInt32(txtQuantity.Text.Trim()) + "," + Convert.ToInt64(Convert.ToInt32(txtCurrentRate.Text.Trim()) * Convert.ToInt32(txtQuantity.Text.Trim())) + ")", con);
+                    //cm1.ExecuteNonQuery();
+                    SqlCommand cm1 = new SqlCommand("SP_Invoice_Insert", con);
+                    cm1.CommandType = CommandType.StoredProcedure;
+                    cm1.Parameters.AddWithValue("@Partyid", Convert.ToInt32(ddlInvoicePartyName.SelectedValue));
+                    cm1.Parameters.AddWithValue("@Productid", id2);
+                    cm1.Parameters.AddWithValue("@RateOfProduct", Convert.ToInt32(txtCurrentRate.Text.Trim()));
+                    cm1.Parameters.AddWithValue("@Quantity", Convert.ToInt32(txtQuantity.Text.Trim()));
+                    cm1.Parameters.AddWithValue("@Total", Convert.ToInt64(Convert.ToInt32(txtCurrentRate.Text.Trim()) * Convert.ToInt32(txtQuantity.Text.Trim())));
                     cm1.ExecuteNonQuery();
                 }
                 else
                 {
-                    SqlCommand cm1 = new SqlCommand("select Quantity from Invoice where Productid=" + id2, con);
-                    var quan = cm1.ExecuteScalar();
-                    int quantity = Convert.ToInt32(quan);
-                    SqlCommand cm3 = new SqlCommand("update Invoice set Quantity =" + Convert.ToInt32(quantity + Convert.ToInt32(txtQuantity.Text)) + " where Partyid=" + id3 + "and Productid ="+ id2, con);
+                    SqlCommand cm1 = new SqlCommand("select Quantity from Invoice where Partyid=" + id3 + "and Productid=" + id2, con);
+                    int quantity = Convert.ToInt32(cm1.ExecuteScalar());
+                    SqlCommand cm3 = new SqlCommand("SP_Invoice_Edit", con);
+                    cm3.CommandType = CommandType.StoredProcedure;
+                    cm3.Parameters.AddWithValue("@Partyid", id3);
+                    cm3.Parameters.AddWithValue("@Productid", id2);
+                    cm3.Parameters.AddWithValue("@Quantity", Convert.ToInt32(quantity + Convert.ToInt32(txtQuantity.Text.Trim())));
+                    cm3.Parameters.AddWithValue("@Total", Convert.ToInt64(Convert.ToInt32(txtCurrentRate.Text.Trim()) * Convert.ToInt32(quantity + Convert.ToInt32(txtQuantity.Text.Trim()))));
                     cm3.ExecuteNonQuery();
-                    SqlCommand cm4 = new SqlCommand("update Invoice set Total =" + Convert.ToInt64(Convert.ToInt32(txtCurrentRate.Text.Trim()) * Convert.ToInt32(quantity + Convert.ToInt32(txtQuantity.Text.Trim()))) + "where Partyid =" + id3 + " and Productid=" + id2, con);
-                    cm4.ExecuteNonQuery();
                 }
                 SqlCommand cm2 = new SqlCommand("select sum(Total) from Invoice", con);
                 var total = cm2.ExecuteScalar();

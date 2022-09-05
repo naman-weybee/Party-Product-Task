@@ -29,14 +29,14 @@ create table Invoice(
 	Quantity int,
 	Total bigint,
 );
-
+SELECT 'Exists' FROM Party where id = 1;
+SELECT 'Exists' FROM AssignParty where Partyid =1 and Productid =1048
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 select * from Party;
 select * from Products;
 select * from AssignParty;
 select * from ProductRate;
 select * from Invoice;
-
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

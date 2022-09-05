@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace PartyTask
 {
@@ -15,10 +16,10 @@ namespace PartyTask
         {
             if (!IsPostBack)
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     SqlDataAdapter sdr = new SqlDataAdapter("select * from Products", con);
                     con.Open();
                     DataTable dt = new DataTable();
@@ -49,10 +50,10 @@ namespace PartyTask
             Boolean flag1 = CheckProduct();
             if (ddlProductNameAdd.SelectedValue != "-1" && txtProductRateAdd.Text.Trim() != "" && txtDateOfRateAdd.Text.Trim() != "")
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     if (flag1 == false)
                     {
                         SqlCommand cm = new SqlCommand("insert into ProductRate(Productid, Rate, DateOfRate)values(" + Convert.ToInt32(ddlProductNameAdd.SelectedValue) + "," + Convert.ToInt32(txtProductRateAdd.Text.Trim()) + ",'" + Convert.ToDateTime(txtDateOfRateAdd.Text.Trim()).ToString("yyyy-MM-dd") + "')", con);
@@ -81,20 +82,18 @@ namespace PartyTask
         protected Boolean CheckProduct()
         {
             Boolean flag = false;
-            SqlConnection con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
+            string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strcon);
             int id1 = Convert.ToInt32(ddlProductNameAdd.SelectedValue);
             SqlCommand cm = new SqlCommand("select * from ProductRate", con);
             con.Open();
             SqlDataReader sdr = cm.ExecuteReader();
+            sdr.Read();
             if (sdr.HasRows)
             {
-                while (sdr.Read())
+                if (sdr.GetInt32(1) == id1)
                 {
-                    if (sdr.GetInt32(1) == id1)
-                    {
-                        flag = true;
-                        break;
-                    }
+                    flag = true;
                 }
             }
             return flag;

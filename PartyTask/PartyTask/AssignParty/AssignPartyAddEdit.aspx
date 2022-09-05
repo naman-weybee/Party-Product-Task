@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AssignPartyAdd.aspx.cs" Inherits="PartyTask.AssignPartyAdd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AssignPartyAddEdit.aspx.cs" Inherits="PartyTask.AssignPartyAdd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../CSS/AssignParty.css" rel="stylesheet" />

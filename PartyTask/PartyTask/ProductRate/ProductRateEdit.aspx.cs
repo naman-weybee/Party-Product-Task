@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace PartyTask
 {
@@ -15,12 +16,12 @@ namespace PartyTask
         {
             if (!IsPostBack)
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
                     int id = Convert.ToInt32(Request.QueryString["ID"]);
                     string name3 = Request.QueryString["name3"];
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     SqlDataAdapter sdr = new SqlDataAdapter("select * from Products", con);
                     SqlCommand cm = new SqlCommand("select Productid from ProductRate where id=" + id, con);
                     con.Open();
@@ -62,11 +63,11 @@ namespace PartyTask
             {
                 if (txtProductRateEdit.Text.Trim() != "" && txtDateOfRateEdit.Text.Trim() != "")
                 {
-                    SqlConnection con = null;
+                    string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                    SqlConnection con = new SqlConnection(strcon);
                     try
                     {
                         int id = Convert.ToInt32(Request.QueryString["ID"]);
-                        con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                         SqlCommand cm = new SqlCommand("update ProductRate set Productid =" + Convert.ToInt32(ddlProductNameEdit.SelectedValue) + "where id=" + id, con);
                         SqlCommand cm1 = new SqlCommand("update ProductRate set Rate =" + Convert.ToInt32(txtProductRateEdit.Text.Trim()) + "where id=" + id, con);
                         SqlCommand cm2 = new SqlCommand("update ProductRate set DateOfRate ='" + Convert.ToDateTime(txtDateOfRateEdit.Text.Trim()).ToString("yyyy-MM-dd") + "'where id=" + id, con);
@@ -101,20 +102,18 @@ namespace PartyTask
         protected Boolean CheckProduct()
         {
             Boolean flag = false;
-            SqlConnection con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
+            string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strcon);
             int id1 = Convert.ToInt32(ddlProductNameEdit.SelectedValue);
             SqlCommand cm = new SqlCommand("select * from ProductRate", con);
             con.Open();
             SqlDataReader sdr = cm.ExecuteReader();
+            sdr.Read();
             if (sdr.HasRows)
             {
-                while (sdr.Read())
+                if (sdr.GetInt32(1) == id1)
                 {
-                    if (sdr.GetInt32(1) == id1)
-                    {
-                        flag = true;
-                        break;
-                    }
+                    flag = true;
                 }
             }
             return flag;

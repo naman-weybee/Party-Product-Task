@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace PartyTask
 {
@@ -15,11 +16,11 @@ namespace PartyTask
         {
             if (!IsPostBack)
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
                     int id = Convert.ToInt32(Request.QueryString["ID"]);
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     SqlDataAdapter sdr = new SqlDataAdapter("select * from Party", con);
                     SqlCommand cm = new SqlCommand("select Partyid from AssignParty where id=" + id, con);
                     con.Open();
@@ -46,11 +47,11 @@ namespace PartyTask
         {
             if (!IsPostBack)
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
                     int id = Convert.ToInt32(Request.QueryString["ID"]);
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     SqlDataAdapter sdr = new SqlDataAdapter("select * from Products", con);
                     SqlCommand cm = new SqlCommand("select Productid from AssignParty where id=" + id, con);
                     con.Open();
@@ -85,11 +86,11 @@ namespace PartyTask
             Boolean flag1 = CheckProduct();
             if (flag1 == false)
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
                     int id = Convert.ToInt32(Request.QueryString["ID"]);
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     SqlCommand cm = new SqlCommand("update AssignParty set Partyid=" + Convert.ToInt32(ddlAssignPartyNameEdit.SelectedValue) + "where id=" + id, con);
                     SqlCommand cm1 = new SqlCommand("update AssignParty set Productid=" + Convert.ToInt32(ddlAssignProductNameEdit.SelectedValue) + "where id=" + id, con);
                     con.Open();
@@ -119,21 +120,19 @@ namespace PartyTask
         protected Boolean CheckProduct()
         {
             Boolean flag = false;
-            SqlConnection con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
+            string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strcon);
             int id1 = Convert.ToInt32(ddlAssignPartyNameEdit.SelectedValue);
             int id2 = Convert.ToInt32(ddlAssignProductNameEdit.SelectedValue);
             SqlCommand cm = new SqlCommand("select * from AssignParty", con);
             con.Open();
             SqlDataReader sdr = cm.ExecuteReader();
+            sdr.Read();
             if (sdr.HasRows)
             {
-                while (sdr.Read())
+                if (sdr.GetInt32(1) == id1 && sdr.GetInt32(2) == id2)
                 {
-                    if (sdr.GetInt32(1) == id1 && sdr.GetInt32(2) == id2)
-                    {
-                        flag = true;
-                        break;
-                    }
+                    flag = true;
                 }
             }
             return flag;

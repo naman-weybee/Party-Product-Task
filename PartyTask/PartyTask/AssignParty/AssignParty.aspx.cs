@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace PartyTask
 {
@@ -13,10 +14,10 @@ namespace PartyTask
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = null;
+            string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strcon);
             try
             {
-                con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                 SqlDataAdapter sdr = new SqlDataAdapter("select AssignParty.id, Party.id, Party.PartyName, Products.id, Products.ProductName from AssignParty inner join Party on Party.id = AssignParty.Partyid inner join Products on Products.id = AssignParty.Productid order by AssignParty.id", con);
                 DataSet ds = new DataSet();
                 sdr.Fill(ds);
@@ -41,7 +42,7 @@ namespace PartyTask
                 int id = Convert.ToInt32(gd.Cells[0].Text);
                 string name1 = gd.Cells[1].Text;
                 string name2 = gd.Cells[2].Text;
-                Response.Redirect("~/AssignParty/AssignPartyEdit.aspx?ID=" + id + "&name1=" + name1 + "&name2=" + name2);
+                Response.Redirect("~/AssignParty/AssignPartyAddEdit.aspx?ID=" + id + "&name1=" + name1 + "&name2=" + name2);
             }
         }
         protected void btnDelete_Click(object sender, ImageClickEventArgs e)
@@ -51,10 +52,10 @@ namespace PartyTask
             string confirmValue = Request.Form["confirm_value"];
             if (confirmValue == "Yes")
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     SqlCommand cm = new SqlCommand("delete from AssignParty where id =" + id, con);
                     con.Open();
                     cm.ExecuteNonQuery();

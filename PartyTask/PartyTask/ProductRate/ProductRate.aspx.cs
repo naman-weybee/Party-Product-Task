@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace PartyTask
 {
@@ -15,11 +16,11 @@ namespace PartyTask
         {
             if (!IsPostBack)
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
-                    SqlDataAdapter sde = new SqlDataAdapter("select ProductRate.id, Products.id , ProductRate.Productid, Products.ProductName, Rate, DateOfRate from ProductRate inner join Products on Products.id = ProductRate.Productid order by ProductRate.id", con);
+                    SqlDataAdapter sde = new SqlDataAdapter("select Products.ProductName, ProductRate.id, Products.id , ProductRate.Productid, Rate, DateOfRate from ProductRate inner join Products on Products.id = ProductRate.Productid order by ProductRate.id", con);
                     con.Open();
                     DataSet ds = new DataSet();
                     sde.Fill(ds);
@@ -50,7 +51,7 @@ namespace PartyTask
                 string name1 = gd.Cells[1].Text;
                 string name2 = gd.Cells[2].Text;
                 string name3 = gd.Cells[3].Text;
-                Response.Redirect("~/ProductRate/ProductRateEdit.aspx?ID=" + id + "&name1=" + name1 + "&name2=" + name2 + "&name3=" + name3);
+                Response.Redirect("~/ProductRate/ProductRateAddEdit.aspx?ID=" + id + "&name1=" + name1 + "&name2=" + name2 + "&name3=" + name3);
             }
         }
         protected void btnDelete_Click(object sender, ImageClickEventArgs e)
@@ -60,10 +61,10 @@ namespace PartyTask
             string confirmValue = Request.Form["confirm_value"];
             if (confirmValue == "Yes")
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                     SqlCommand cm = new SqlCommand("delete from ProductRate where id=" + id, con);
                     con.Open();
                     cm.ExecuteNonQuery();

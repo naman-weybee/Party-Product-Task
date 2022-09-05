@@ -6,17 +6,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace PartyTask
 {
     public partial class Party : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public void UpdateData()
         {
-            SqlConnection con = null;
+            string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strcon);
             try
             {
-                con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                 SqlDataAdapter sdr = new SqlDataAdapter("Select * from Party order by id", con);
                 DataSet ds = new DataSet();
                 sdr.Fill(ds);
@@ -32,6 +33,10 @@ namespace PartyTask
                 con.Close();
             }
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            UpdateData();
+        }
 
         protected void gdParty_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -40,7 +45,7 @@ namespace PartyTask
                 GridViewRow gd = gdParty.Rows[Convert.ToInt32(e.CommandArgument)];
                 int id = Convert.ToInt32(gd.Cells[0].Text);
                 string name = gd.Cells[1].Text;
-                Response.Redirect("~/Party/PartyEdit.aspx?ID=" + id + "&name=" + name);
+                Response.Redirect("~/Party/PartyAddEdit.aspx?ID=" + id + "&name=" + name);
             }
         }
 
@@ -51,14 +56,14 @@ namespace PartyTask
             string confirmValue = Request.Form["confirm_value"];
             if (confirmValue == "Yes")
             {
-                SqlConnection con = null;
+                string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strcon);
                 try
                 {
-                    con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
-                    SqlCommand cm = new SqlCommand("delete from Party where id =" + id, con);
                     con.Open();
+                    SqlCommand cm = new SqlCommand("delete from Party where id =" + id, con);
                     cm.ExecuteNonQuery();
-                    Response.Redirect("~/Party/Party.aspx");
+                    UpdateData();
                 }
                 catch (Exception ex)
                 {

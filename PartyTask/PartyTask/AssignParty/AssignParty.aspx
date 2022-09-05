@@ -10,7 +10,7 @@
     </p>
     <div class="btnArea">
         <div class="btnPage">
-            <asp:Button ID="btnAssign" runat="server" Text="Add New Assign" PostBackUrl="~/AssignParty/AssignPartyAdd.aspx" CssClass="AssignPartyAdd" />
+            <asp:Button ID="btnAssign" runat="server" Text="Add New Assign" PostBackUrl="~/AssignParty/AssignPartyAddEdit.aspx" CssClass="AssignPartyAdd" />
         </div>
     </div>
 </asp:Content>

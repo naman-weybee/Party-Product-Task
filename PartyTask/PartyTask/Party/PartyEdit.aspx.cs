@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace PartyTask
 {
@@ -27,11 +28,11 @@ namespace PartyTask
             {
                 if (txtPartyEdit.Text != "")
                 {
-                    SqlConnection con = null;
+                    string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+                    SqlConnection con = new SqlConnection(strcon);
                     try
                     {
                         int id = Convert.ToInt32(Request.QueryString["ID"]);
-                        con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
                         SqlCommand cm = new SqlCommand("update Party set PartyName = '" + txtPartyEdit.Text + "' where ID = " + id, con);
                         con.Open();
                         cm.ExecuteNonQuery();
@@ -53,33 +54,6 @@ namespace PartyTask
             }
         }
 
-
-        //protected void btnUpdateParty_Click(object sender, EventArgs e)
-        //{
-        //    if (txtPartyEdit.Text != "")
-        //    {
-        //        SqlConnection con = null;
-        //        try
-        //        {
-        //            int id = Convert.ToInt32(Request.QueryString["ID"]);
-        //            con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
-        //            SqlCommand cm = new SqlCommand("update Party set PartyName = '" + txtPartyEdit.Text + "' where ID = " + id, con);
-        //            con.Open();
-        //            cm.ExecuteNonQuery();
-        //            Response.Redirect("~/Party/Party.aspx");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Response.Write("<script>alert(\"Party Can't be Edited Because it is already Present...!\")</script>");
-        //            //Response.Write(ex.Message);
-        //        }
-        //        finally
-        //        {
-        //            con.Close();
-        //        }
-        //    }
-        //}
-
         protected void btnCancelParty_Click1(object sender, EventArgs e)
         {
             Response.Redirect("~/Party/Party.aspx");
@@ -88,21 +62,19 @@ namespace PartyTask
         protected Boolean CheckParty()
         {
             Boolean flag = false;
-            SqlConnection con = new SqlConnection("data source=DESKTOP-9J2CV47; database=PartyProduct; integrated security=SSPI");
+            string strcon = ConfigurationManager.ConnectionStrings["PartyProductConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strcon);
             SqlCommand cm = new SqlCommand("SELECT id FROM Party WHERE PartyName like ('" + txtPartyEdit.Text.Trim() + "')", con);
             con.Open();
             var x = cm.ExecuteScalar();
             int id = Convert.ToInt32(x);
             SqlDataReader sdr = cm.ExecuteReader();
+            sdr.Read();
             if (sdr.HasRows)
             {
-                while (sdr.Read())
+                if (sdr.GetInt32(0) == id)
                 {
-                    if (sdr.GetInt32(0) == id)
-                    {
-                        flag = true;
-                        break;
-                    }
+                    flag = true;
                 }
             }
             return flag;
